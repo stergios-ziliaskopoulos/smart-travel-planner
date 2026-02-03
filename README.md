@@ -1,30 +1,36 @@
 # 🌍 Smart Travel Planner
 
-A Multi-Agent AI Travel Planner built with **LangGraph**, **LangChain**, and **Streamlit**.
+![Python](https://img.shields.io/badge/Python-3.10%2B-blue?logo=python&logoColor=white)
+![Streamlit](https://img.shields.io/badge/Streamlit-App-FF4B4B?logo=streamlit&logoColor=white)
+![LangChain](https://img.shields.io/badge/LangChain-Orchestration-green?logo=chainlink&logoColor=white)
+![LangGraph](https://img.shields.io/badge/LangGraph-State_Machine-orange)
+![License](https://img.shields.io/badge/License-MIT-purple)
 
-## Overview
+A **Multi-Agent AI Travel Planner** that designs your perfect trip. Built with **LangGraph**, **LangChain**, and **Streamlit**.
 
-This project uses a graph of AI agents to plan your perfect trip:
-1.  **Planner**: Breaks down your request.
-2.  **Researcher**: Finds flights, hotels, and activities (using mock tools for demo).
-3.  **Itinerary**: Compiles your schedule.
-4.  **Reviewer**: Ensures the plan meets your criteria.
+## ✨ Features
 
-## Setup
+- **🤖 Multi-Agent Orchestration**: Four distinct agents (Planner, Researcher, Itinerary, Reviewer) collaborate to build your plan.
+- **🗺️ Flexible Itineraries**: Supports planning trips from any **Origin** to any **Destination**.
+- **📝 Narrative Plans**: Generates friendly, human-like itinerary descriptions with stories and emojis.
+- **🎨 Interactive UI**: Clean Streamlit interface with sidebar controls for budget, duration, and locations.
+- **⚡ Fast & Free Demo**: Uses **Mock Tools** to simulate flight/hotel data, ensuring a reliable demo experience without API keys or costs.
 
-1.  **Install Dependencies**
-    ```bash
-    pip install -r requirements.txt
-    ```
+## 🚀 Quick Start
 
-2.  **Run the App**
-    ```bash
-    streamlit run app/main.py
-    ```
+### 1. Install Dependencies
+```bash
+pip install -r requirements.txt
+```
 
-## Architecture
+### 2. Run the Application
+```bash
+streamlit run app/main.py
+```
 
-The workflow is defined in `src/graph/workflow.py`. It uses a state machine to pass data between agents.
+## 🏗️ Architecture
+
+The system uses a state graph to manage agent interactions:
 
 ```mermaid
 graph TD
@@ -35,6 +41,12 @@ graph TD
     Reviewer --> End
 ```
 
-## Tools
+### Agents
+1.  **Planner**: Deconstructs your request into actionable steps.
+2.  **Researcher**: Fetches flight options, hotel deals, and local activities.
+3.  **Itinerary**: Weaves the data into a cohesive, narrative day-by-day plan.
+4.  **Reviewer**: Validates the plan against your budget and constraints.
 
-To ensure a smooth demo experience without API costs, this project uses **Mock Tools** (`src/tools/mocks.py`) that simulate data from flight and hotel providers.
+## 🛠️ Tools
+
+To guarantee a smooth presentation, the project uses custom **Mock Tools** (`src/tools/mocks.py`). These return realistic dummy data, allowing you to demo the agentic behavior immediately after cloning.
