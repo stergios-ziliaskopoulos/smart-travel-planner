@@ -9,3 +9,4 @@ class AgentState(TypedDict):
     feedback: str
     messages: List[BaseMessage]
     destination: str
+    origin: str

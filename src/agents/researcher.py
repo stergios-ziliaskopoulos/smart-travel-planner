@@ -8,12 +8,13 @@ def researcher_node(state: AgentState):
     """
     print("--- RESEARCHER ---")
     
-    # Extract destination from state
+    # Extract destination and origin from state
     # Fallback to Rome if not found (though UI ensures it)
     destination = state.get("destination", "Rome")
-    print(f"Researching for: {destination}")
+    origin = state.get("origin", "New York")
+    print(f"Researching trip from {origin} to {destination}")
     
-    flights = search_flights.invoke({"origin": "New York", "destination": destination, "date": "2024-06-01"})
+    flights = search_flights.invoke({"origin": origin, "destination": destination, "date": "2024-06-01"})
     hotels = search_hotels.invoke({"location": destination})
     activities = search_activities.invoke({"location": destination})
     

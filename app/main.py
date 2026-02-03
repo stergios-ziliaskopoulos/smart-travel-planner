@@ -12,6 +12,7 @@ st.markdown("Plan your next trip with AI agents!")
 
 with st.sidebar:
     st.header("Trip Details")
+    origin = st.text_input("From", "New York")
     destination = st.text_input("Destination", "Rome")
     budget = st.number_input("Budget (€)", min_value=100, value=500)
     days = st.number_input("Duration (Days)", min_value=1, value=3)
@@ -25,6 +26,8 @@ if st.button("Plan Trip"):
         initial_state = {
             "user_request": user_input,
             "destination": destination,
+            "origin": origin,
+            "plan": [],
             "plan": [],
             "research_data": {},
             "itinerary": "",

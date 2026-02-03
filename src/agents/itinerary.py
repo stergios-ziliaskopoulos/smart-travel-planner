@@ -17,9 +17,18 @@ def itinerary_node(state: AgentState):
     activities = data.get("activities", [])
     
     itinerary_text = f"""
-    **Travel Itinerary**
-    - **Flight**: {flight['airline']}, ${flight['price']}
-    - **Hotel**: {hotel['name']}, ${hotel['price_per_night']}/night, {hotel['rating']} stars
-    - **Activities**: {', '.join([a['name'] for a in activities])}
+    ### ✈️ Your Trip to {hotel['location']}
+    
+    Get ready! We found a great **{flight['airline']}** flight for you, departing at **{flight['departure_time']}**. The ticket is a steal at **${flight['price']}**.
+    
+    You'll be staying at the **{hotel['name']}** ({hotel['rating']} stars). It's a wonderful spot to relax, costing **${hotel['price_per_night']} per night**.
+    
+    ### 🌟 Things to Do
+    We've lined up some amazing activities:
     """
+    
+    for activity in activities:
+        itinerary_text += f"- Enjoy the **{activity['name']}**.\n"
+        
+    itinerary_text += "\nHave a safe and wonderful trip! 🌍"
     return {"itinerary": itinerary_text, "messages": [AIMessage(content="Itinerary generated.")]}
